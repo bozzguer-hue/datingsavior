@@ -11,6 +11,12 @@ function scrollToMission() {
     });
 }
 
+function scrollToServices() {
+    document.getElementById('services').scrollIntoView({ 
+        behavior: 'smooth' 
+    });
+}
+
 // Testimonial carousel functionality
 let slideIndex = 1;
 
@@ -96,25 +102,8 @@ function handleEmailSubmit(event) {
     }, 1500);
 }
 
-// Service booking functionality
-function handleServiceBooking(serviceName, price) {
-    alert(`Booking ${serviceName} service for ${price}. This would redirect to a booking/payment page.`);
-}
-
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Set up service booking buttons
-    const serviceButtons = document.querySelectorAll('.service-cta');
-    serviceButtons.forEach((button, index) => {
-        const serviceCard = button.closest('.service-card');
-        const serviceName = serviceCard.querySelector('h3').textContent;
-        const servicePrice = serviceCard.querySelector('.service-price').textContent;
-        
-        button.addEventListener('click', () => {
-            handleServiceBooking(serviceName, servicePrice);
-        });
-    });
-    
     // Start testimonial auto-advance
     setInterval(autoSlide, 5000); // Change slide every 5 seconds
     
