@@ -548,28 +548,32 @@ body {
 }
 
 .problem-side p, .upside-side p {
-    padding: 12px 0;
+    padding: 14px 0;
     font-size: 1.05rem;
     color: #5a6c7d;
     line-height: 1.7;
     position: relative;
-    padding-left: 20px;
+    padding-left: 26px;
+    margin-bottom: 8px;
 }
 
 .problem-side p::before {
-    content: '⚠️';
+    content: '●';
     position: absolute;
-    left: 0;
-    top: 12px;
+    left: 6px;
+    top: 14px;
+    color: #e74c3c;
+    font-size: 0.7rem;
 }
 
 .upside-side p::before {
     content: '✓';
     position: absolute;
-    left: 0;
-    top: 12px;
+    left: 4px;
+    top: 14px;
     color: #27ae60;
     font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .promise-box {
