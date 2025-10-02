@@ -31,6 +31,20 @@ body {
     color: white;
 }
 
+.h.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+}
+
 .hero::before {
     content: '';
     position: absolute;
