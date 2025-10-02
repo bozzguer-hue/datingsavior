@@ -1,7 +1,7 @@
-# robots.txt for datingsavior
+# robots.txt for Online Dating Savior
 User-agent: *
 Allow: /
 
 # Point automated crawlers to policy details
-Sitemap: https://joyalicia.com/sitemap.xml
-Host: joyalicia.com
+Sitemap: https://www.onlinedatingsavior.com/sitemap.xml
+Host: www.onlinedatingsavior.com

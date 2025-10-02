@@ -17,6 +17,45 @@ function scrollToServices() {
     });
 }
 
+function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const acceptButton = document.getElementById('cookie-accept');
+
+    if (!banner || !acceptButton) {
+        return;
+    }
+
+    let hasConsent = false;
+
+    try {
+        hasConsent = localStorage.getItem('cookieConsent') === 'accepted';
+    } catch (error) {
+        console.warn('Unable to access localStorage for cookie consent.', error);
+    }
+
+    if (hasConsent) {
+        banner.style.display = 'none';
+        return;
+    }
+
+    banner.classList.add('cookie-banner--visible');
+
+    acceptButton.addEventListener('click', () => {
+        try {
+            localStorage.setItem('cookieConsent', 'accepted');
+        } catch (error) {
+            console.warn('Unable to store cookie consent.', error);
+        }
+
+        banner.classList.remove('cookie-banner--visible');
+        banner.classList.add('cookie-banner--hidden');
+
+        setTimeout(() => {
+            banner.style.display = 'none';
+        }, 300);
+    });
+}
+
 // Testimonial carousel functionality
 let slideIndex = 1;
 
@@ -27,6 +66,10 @@ function currentSlide(n) {
 function showSlide(n) {
     const slides = document.getElementsByClassName('testimonial');
     const dots = document.getElementsByClassName('dot');
+
+    if (slides.length === 0) {
+        return;
+    }
     
     if (n > slides.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slides.length; }
@@ -40,7 +83,9 @@ function showSlide(n) {
     }
     
     slides[slideIndex - 1].classList.add('active');
-    dots[slideIndex - 1].classList.add('active');
+    if (dots[slideIndex - 1]) {
+        dots[slideIndex - 1].classList.add('active');
+    }
 }
 
 // Auto-advance testimonials
@@ -130,6 +175,8 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+    initCookieBanner();
 });
 
 // Add some interactive hover effects
