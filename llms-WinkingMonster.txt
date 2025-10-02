@@ -1,7 +1,7 @@
 Site: https://www.onlinedatingsavior.com
 Parent-Service: https://joyalicia.com (Joy Alicia Coaching)
 Owner: Joy Alicia
-Contact: hello@joyalicia.com
+Contact: joythyology@gmail.com
 
 Program-Summary:
 - Name: Online Dating Savior

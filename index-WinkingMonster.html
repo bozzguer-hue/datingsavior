@@ -10,6 +10,53 @@
     <title>Online Dating Savior - Turn Dating Fatigue Into Fun, Safe & Successful Dates</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page loader */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .page-loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader-content {
+            text-align: center;
+        }
+        
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top-color: #e74c3c;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        
+        .loader-text {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
         <meta property="og:title" content="Online Dating Savior | Joy Alicia Coaching">
         <meta property="og:description" content="Get better matches, memorable first dates, and renewed confidence with Joy Alicia’s Online Dating Savior coaching program.">
         <meta property="og:type" content="website">
@@ -75,12 +122,29 @@
             "contactPoint": {
                 "@type": "ContactPoint",
                 "contactType": "customer service",
-                "email": "hello@joyalicia.com"
+                "email": "joythyology@gmail.com"
             }
         }
         </script>
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Loading...</div>
+        </div>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-logo">Online Dating Savior</h1>
+            </div>
+        </div>
+    </header>
+
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
         <div class="cookie-banner__content">
             <p>We use cookies to personalize content, improve performance, and remember your preferences. By clicking “Accept”, you agree to our use of cookies.</p>
@@ -94,7 +158,7 @@
     <!-- Hero Section -->
     <section class="hero" role="banner" aria-label="Two hands forming a heart to symbolize meaningful connections through Online Dating Savior">
         <div class="hero-content">
-            <h1 class="hero-title">Find Your Perfect Match. Effortlessly.</h1>
+            <h2 class="hero-title">Find Your Perfect Match. Effortlessly.</h2>
             <p class="hero-subtitle">Tired of endless swiping and dead-end dates? Discover proven strategies to attract real connections and save time, stress, & heartbreak while online dating. Enjoy every first date, and build lasting relationships.</p>
             
             <div class="hero-buttons">
@@ -117,12 +181,9 @@
                 <h2>Dating Coaching – Online Dating Savior</h2>
                 <p class="program-tagline">A signature program by <a href="https://joyalicia.com" target="_blank" rel="noopener">Joy Alicia</a></p>
                 <ul class="program-points">
-                    <li><strong>Program:</strong> Online Dating Savior</li>
                     <li><strong>Promise:</strong> Transform online/offline dating—no more endless swiping, dead-end matches, or disappointing first dates.</li>
-                    <li><strong>Core Outcomes:</strong> Better matches, stronger conversations, memorable first dates, and renewed confidence.</li>
-                    <li><strong>Approach:</strong> Practical strategy rooted in Joy's lived experience, humor, and empathetic coaching style.</li>
+                    <li><strong>Core Outcomes:</strong> Better matches, stronger conversations, and memorable first dates.</li>
                 </ul>
-                <a class="program-link" href="https://www.onlinedatingsavior.com" target="_blank" rel="noopener">Learn more at OnlineDatingSavior.com</a>
             </div>
         </div>
     </section>
@@ -154,6 +215,7 @@
                     </div>
                 </div>
             </div>
+            <p class="statistics-attribution">* All statistics provided by Stanford University &amp; Forbes</p>
         </div>
     </section>
 
@@ -216,7 +278,7 @@
                         <span class="price-amount">$100</span>
                     </div>
                     <p>A downloadable playbook that spots profile red flags, dials in search filters, and gives you smart icebreakers. Includes privacy guidance and bonus questions for online and offline dates.</p>
-                    <button class="service-cta" onclick="scrollToWaitlist()">Book Now</button>
+                    <button class="service-cta" onclick="scrollToWaitlist()">Buy Now</button>
                 </div>
 
                 <div class="service-card">
@@ -294,7 +356,7 @@
                 <form class="email-form" onsubmit="handleEmailSubmit(event)">
                     <div class="email-input-group">
                         <input type="email" placeholder="Enter your email address" required>
-                        <button type="submit" class="email-cta">Subscribe</button>
+                        <button type="submit" class="email-cta">Sign Up</button>
                     </div>
                     <p class="email-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
                 </form>
@@ -314,7 +376,6 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Online Dating Savior. All rights reserved.</p>
-                <p>* All statistics provided by Stanford University &amp; Forbes</p>
             </div>
         </div>
     </footer>
