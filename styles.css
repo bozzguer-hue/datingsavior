@@ -1801,6 +1801,7 @@ button:focus, a:focus {
     color: #4a5b6a;
     transition: all 0.3s ease;
     border-left: 3px solid #e74c3c;
+    text-align: left;
 }
 
 .program-points li:hover {
