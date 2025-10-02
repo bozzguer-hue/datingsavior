@@ -122,8 +122,7 @@ body {
 .policy-content a:hover {
     text-decoration: underline;
 }
-.hero-buttons {
-    display: flex;
+
 .cookie-banner {
     position: fixed;
     bottom: 20px;
@@ -198,6 +197,9 @@ body {
 .cookie-banner__link:hover {
     text-decoration: underline;
 }
+
+.hero-buttons {
+    display: flex;
     gap: 20px;
     justify-content: center;
     margin-bottom: 60px;
