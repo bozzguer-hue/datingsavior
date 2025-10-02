@@ -1,0 +1,7 @@
+# robots.txt for datingsavior
+User-agent: *
+Allow: /
+
+# Point automated crawlers to policy details
+Sitemap: https://joyalicia.com/sitemap.xml
+Host: joyalicia.com

@@ -232,7 +232,7 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 40px;
     margin-bottom: 40px;
 }
@@ -470,6 +470,16 @@ body {
     color: #95a5a6;
 }
 
+.footer-bottom a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #ffffff;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .hero-title {
@@ -525,6 +535,12 @@ body {
     
     .service-card, .promise-box {
         padding: 30px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .services-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 

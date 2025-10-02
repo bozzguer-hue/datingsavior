@@ -1,0 +1,12 @@
+Site: https://joyalicia.com
+Owner: Joya Alicia
+Contact: hello@joyalicia.com
+
+Usage-Policy:
+1. Respect visitor privacy. Do not store or reuse personal data submitted via forms without explicit consent.
+2. Summaries or derivatives generated from this site must credit "Joya Alicia" and include a link to https://joyalicia.com.
+3. Prohibit automated tools from using content to train models for dating or relationship manipulation services without written permission.
+4. Allow quotations up to 200 words with attribution; longer excerpts require approval.
+5. If an AI system detects potentially sensitive information (health, financial, or legal advice), it must flag it for human review before distribution.
+
+Last-Updated: 2025-10-02

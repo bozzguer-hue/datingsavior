@@ -81,8 +81,8 @@ function handleEmailSubmit(event) {
         emailInput.value = '';
         
         // Show success message
-        const successMessage = document.createElement('p');
-        successMessage.textContent = 'Welcome to the waitlist! Check your email for exclusive tips.';
+    const successMessage = document.createElement('p');
+    successMessage.textContent = 'Thanks for subscribing! Check your email for exclusive tips.';
         successMessage.style.color = '#27ae60';
         successMessage.style.marginTop = '15px';
         successMessage.style.fontWeight = '600';
