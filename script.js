@@ -152,73 +152,161 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start testimonial auto-advance
     setInterval(autoSlide, 5000); // Change slide every 5 seconds
     
-    // Intersection Observer for scroll animations
+    // Enhanced Intersection Observer for scroll animations with stagger effect
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.15,
+        rootMargin: '0px 0px -80px 0px'
     };
     
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+                // Add stagger delay based on element position
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                }, index * 100);
             }
         });
     }, observerOptions);
     
-    // Observe elements for scroll animations
-    const animatedElements = document.querySelectorAll('.service-card, .mission-point, .testimonial');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(el);
+    // Observe service cards with stagger
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(40px) scale(0.95)';
+        observer.observe(card);
+    });
+    
+    // Observe mission points
+    const missionPoints = document.querySelectorAll('.mission-point');
+    missionPoints.forEach((point, index) => {
+        point.style.opacity = '0';
+        point.style.transform = 'translateX(-30px)';
+        observer.observe(point);
+    });
+
+    // Observe sections
+    const sections = document.querySelectorAll('.pain-point, .mission, .testimonials, .email-capture, .program-highlight');
+    sections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        observer.observe(section);
+    });
+
+    // Observe problem/promise boxes
+    const boxes = document.querySelectorAll('.problem-side, .upside-side, .promise-box');
+    boxes.forEach((box, index) => {
+        box.style.opacity = '0';
+        box.style.transform = 'translateY(30px)';
+        observer.observe(box);
     });
 
     initCookieBanner();
+    initParallaxEffects();
+    initButtonRipples();
+    initPageLoader();
 });
 
-// Add some interactive hover effects
-document.addEventListener('DOMContentLoaded', function() {
-    // Add hover effect to service cards
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-            this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.15)';
-        });
+// Page loader
+function initPageLoader() {
+    const loader = document.getElementById('pageLoader');
+    
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            loader.classList.add('hidden');
+            // Remove from DOM after transition
+            setTimeout(() => {
+                loader.style.display = 'none';
+            }, 500);
+        }, 800);
+    });
+}
+
+// Parallax effects initialization
+function initParallaxEffects() {
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
         
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 8px 30px rgba(0,0,0,0.1)';
+        // Parallax effect for hero background
+        const hero = document.querySelector('.hero');
+        if (hero) {
+            const rate = scrolled * -0.3;
+            hero.style.backgroundPositionY = `${rate}px`;
+        }
+
+        // Fade effect for mission image
+        const missionImage = document.querySelector('.mission-image img');
+        if (missionImage) {
+            const rect = missionImage.getBoundingClientRect();
+            const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+            if (isVisible) {
+                const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
+                const scale = 0.9 + (scrollPercent * 0.1);
+                missionImage.style.transform = `scale(${Math.min(scale, 1)})`;
+            }
+        }
+    });
+}
+
+// Button ripple effect
+function initButtonRipples() {
+    const buttons = document.querySelectorAll('.cta-primary, .cta-secondary, .service-cta, .email-cta');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const ripple = document.createElement('span');
+            ripple.style.cssText = `
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: rgba(255, 255, 255, 0.6);
+                border-radius: 50%;
+                pointer-events: none;
+                transform: translate(-50%, -50%) scale(0);
+                animation: rippleEffect 0.6s ease-out;
+                left: ${x}px;
+                top: ${y}px;
+            `;
+            
+            this.style.position = 'relative';
+            this.style.overflow = 'hidden';
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
         });
     });
-});
+}
 
-// Handle navigation and scroll effects
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.5;
-    
-    // Parallax effect for hero background
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        hero.style.transform = `translateY(${rate}px)`;
+// Add CSS for ripple animation
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes rippleEffect {
+        to {
+            transform: translate(-50%, -50%) scale(20);
+            opacity: 0;
+        }
     }
-});
 
-// Add loading animation
-window.addEventListener('load', function() {
-    const heroContent = document.querySelector('.hero-content');
-    if (heroContent) {
-        heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(50px)';
-        
-        setTimeout(() => {
-            heroContent.style.transition = 'opacity 1s ease, transform 1s ease';
-            heroContent.style.opacity = '1';
-            heroContent.style.transform = 'translateY(0)';
-        }, 100);
+    .animate-in {
+        animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+        opacity: 1 !important;
+        transform: translateY(0) scale(1) !important;
     }
-});
+
+    .service-card.animate-in {
+        animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+    }
+
+    .mission-point.animate-in {
+        animation: slideInLeft 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards !important;
+    }
+
+    section.animate-in {
+        animation: fadeIn 1s ease forwards !important;
+    }
+`;
+document.head.appendChild(style);
