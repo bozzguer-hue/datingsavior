@@ -613,6 +613,14 @@ body {
     z-index: 1;
 }
 
+.statistics-attribution {
+    text-align: center;
+    margin-top: 40px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
 /* Mission Section */
 .mission {
     padding: 120px 0;
