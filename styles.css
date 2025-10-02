@@ -404,7 +404,7 @@ body {
 }
 
 .price-amount {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
     font-weight: 700;
     color: #e74c3c;
     line-height: 1;
@@ -437,7 +437,7 @@ body {
 }
 
 .service-price--tiered .price-amount {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
 }
 
 .price-divider {
