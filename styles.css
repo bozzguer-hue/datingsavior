@@ -970,14 +970,40 @@ body {
     flex: 1;
     padding: 14px 20px;
     font-size: 0.95rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .service-cta--secondary {
-    background: linear-gradient(135deg, #d35400 0%, #b34700 100%);
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-cta--secondary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.service-cta--secondary:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .service-cta--secondary:hover {
-    box-shadow: 0 8px 25px rgba(211, 84, 0, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(230, 126, 34, 0.5);
+}
+
+.service-cta--secondary:active {
+    transform: translateY(-1px) scale(1.02);
 }
 
 .services-note {
