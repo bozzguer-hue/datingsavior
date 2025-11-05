@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favicon Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+        canvas {
+            border: 1px solid #ccc;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Favicon PNG Generator</h1>
+    <p>This will generate a 32x32 PNG favicon from the SVG</p>
+    <canvas id="canvas" width="32" height="32"></canvas>
+    <br>
+    <button onclick="generateFavicon()">Download PNG Favicon</button>
+    
+    <script>
+        function generateFavicon() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, 32, 32);
+            
+            // Draw background circle
+            ctx.fillStyle = '#2c3e50';
+            ctx.beginPath();
+            ctx.arc(16, 16, 15.5, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw heart with gradient
+            const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+            gradient.addColorStop(0, '#e74c3c');
+            gradient.addColorStop(1, '#c0392b');
+            
+            ctx.fillStyle = gradient;
+            ctx.strokeStyle = 'white';
+            ctx.lineWidth = 0.5;
+            
+            // Heart path (scaled down)
+            ctx.beginPath();
+            ctx.moveTo(16, 24);
+            // Left curve
+            ctx.bezierCurveTo(16, 24, 8, 17.6, 8, 12.8);
+            ctx.bezierCurveTo(8, 9.6, 10.24, 8, 12.8, 9.6);
+            ctx.bezierCurveTo(14.4, 10.56, 16, 12.8, 16, 12.8);
+            // Right curve
+            ctx.bezierCurveTo(16, 12.8, 17.6, 10.56, 19.2, 9.6);
+            ctx.bezierCurveTo(21.76, 8, 24, 9.6, 24, 12.8);
+            ctx.bezierCurveTo(24, 17.6, 16, 24, 16, 24);
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            
+            // Download
+            canvas.toBlob(function(blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'favicon.png';
+                a.click();
+                URL.revokeObjectURL(url);
+            });
+        }
+        
+        // Auto-generate on page load
+        window.onload = function() {
+            generateFavicon();
+        };
+    </script>
+</body>
+</html>

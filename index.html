@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Transform online dating fatigue into fun, aligned matches with Joy Alicia’s Online Dating Savior coaching—profile audits, conversation guidance, and concierge profile management.">
+        <meta name="description" content="Transform online dating fatigue into fun, aligned matches with Joy Alicia's Online Dating Savior coaching—profile audits, conversation guidance, and concierge profile management.">
         <link rel="canonical" href="https://www.onlinedatingsavior.com/">
+        <link rel="icon" type="image/svg+xml" href="favicon.svg">
+        <link rel="icon" type="image/png" href="favicon.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Online Dating Savior - Turn Dating Fatigue Into Fun, Safe & Successful Dates</title>
@@ -178,8 +180,6 @@
     <section class="program-highlight">
         <div class="container">
             <div class="program-card">
-                <h2>Dating Coaching – Online Dating Savior</h2>
-                <p class="program-tagline">A signature program by <a href="https://joyalicia.com" target="_blank" rel="noopener">Joy Alicia</a></p>
                 <ul class="program-points">
                     <li><strong>Promise:</strong> Transform online/offline dating—no more endless swiping, dead-end matches, or disappointing first dates.</li>
                     <li><strong>Core Outcomes:</strong> Better matches, stronger conversations, and memorable first dates.</li>
@@ -350,22 +350,49 @@
         </div>
     </section>
 
-    <!-- Email Capture Section -->
-    <section class="email-capture" id="waitlist">
+    <!-- Contact Section -->
+    <section class="contact-section" id="waitlist">
         <div class="container">
-            <div class="email-capture-content">
+            <div class="contact-content">
                 <h2>Ready to Make Online Dating Fun Again?</h2>
-                
-                <form class="email-form" onsubmit="handleEmailSubmit(event)">
-                    <div class="email-input-group">
-                        <input type="email" placeholder="Enter your email address" required>
-                        <button type="submit" class="email-cta">Sign Up</button>
-                    </div>
-                    <p class="email-disclaimer">We respect your privacy. Unsubscribe at any time.</p>
-                </form>
+                <p class="contact-subtitle">Get in touch and let's transform your dating experience together.</p>
+                <button class="cta-primary" id="openContactModal">Contact Me</button>
             </div>
         </div>
     </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Get in Touch</h2>
+            <p class="modal-subtitle">Have questions? Ready to start your journey? Send me a message!</p>
+            
+            <form class="contact-form" action="https://formspree.io/f/xeopyewr" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
