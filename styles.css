@@ -921,6 +921,9 @@ body {
     overflow: hidden;
     z-index: 1;
     letter-spacing: 0.5px;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .service-cta::before {
@@ -952,6 +955,29 @@ body {
 
 .service-cta:active {
     transform: translateY(-1px) scale(1.02);
+}
+
+/* Split button group for Profile Management */
+.service-cta-group {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+.service-cta--split {
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+}
+
+.service-cta--secondary {
+    background: linear-gradient(135deg, #d35400 0%, #b34700 100%);
+}
+
+.service-cta--secondary:hover {
+    box-shadow: 0 8px 25px rgba(211, 84, 0, 0.4);
 }
 
 .services-note {
