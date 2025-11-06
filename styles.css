@@ -874,33 +874,35 @@ body {
 
 .price-note--limited {
     color: #e74c3c;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-style: italic;
-    animation: pulse 2s ease-in-out infinite;
+    font-weight: 500;
 }
 
 .service-price--free {
     background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
-    padding: 12px 24px;
-    border-radius: 50px;
-    box-shadow: 0 4px 20px rgba(39, 174, 96, 0.3);
-    animation: float 3s ease-in-out infinite;
+    padding: 10px 20px;
+    border-radius: 25px;
+    box-shadow: 0 3px 15px rgba(39, 174, 96, 0.25);
+    display: inline-block;
+    position: relative;
 }
 
 .price-badge {
-    font-size: 1.8rem;
-    font-weight: 800;
+    font-size: 1.4rem;
+    font-weight: 700;
     color: white;
-    letter-spacing: 2px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1.5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     display: block;
-    line-height: 1;
+    line-height: 1.2;
 }
 
 .service-price--free .price-note {
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 600;
-    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    margin-top: 2px;
+    font-size: 0.75rem;
 }
 
 .service-price--tiered {
@@ -942,38 +944,36 @@ body {
     background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
     color: white;
     border: none;
-    padding: 14px 32px;
-    border-radius: 50px;
+    padding: 13px 30px;
+    border-radius: 30px;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
     text-decoration: none;
     display: inline-block;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.25);
 }
 
 .service-cta::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .service-cta:hover::before {
-    width: 300px;
-    height: 300px;
+    opacity: 1;
 }
 
 .service-card .service-cta {
@@ -981,12 +981,12 @@ body {
 }
 
 .service-cta:hover {
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.35);
 }
 
 .service-cta:active {
-    transform: translateY(-1px) scale(1.02);
+    transform: translateY(0);
 }
 
 /* Split button group for Profile Management */
@@ -1001,28 +1001,31 @@ body {
 
 .service-cta--split {
     flex: 1;
-    padding: 14px 24px;
-    font-size: 0.95rem;
+    padding: 13px 20px;
+    font-size: 0.9rem;
     font-weight: 600;
-    min-width: 120px;
+    min-width: 110px;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 30px;
 }
 
 .service-cta--secondary {
     background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
-    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.3);
+    box-shadow: 0 2px 8px rgba(243, 156, 18, 0.25);
+}
+
+.service-cta--secondary::before {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
 }
 
 .service-cta--secondary:hover {
-    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(243, 156, 18, 0.5);
+    box-shadow: 0 4px 15px rgba(243, 156, 18, 0.35);
 }
 
 .service-cta--secondary:active {
-    transform: translateY(-1px) scale(1.02);
+    transform: translateY(0);
 }
 
 .services-note {
